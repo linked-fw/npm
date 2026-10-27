@@ -1,0 +1,147 @@
+@prefix npm: <https://linked.cm/ont/npm/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+
+npm:
+    a owl:Ontology ;
+    dcterms:description "The fields of an npm package's package.json: its name, version, description, keywords, license, links, people and dependencies."@en ;
+    dcterms:title "npm"@en ;
+    owl:versionInfo "0.1.0" .
+
+npm:Dependency
+    a owl:Class ;
+    rdfs:comment "One entry of a package's dependency list, or of its engines: the name of a package (or engine) and the version range the package accepts."@en ;
+    rdfs:label "dependency"@en .
+
+npm:Package
+    a owl:Class ;
+    rdfs:comment "An npm package, as its package.json describes it."@en ;
+    rdfs:label "package"@en ;
+    rdfs:subClassOf schema:SoftwareSourceCode .
+
+npm:author
+    a owl:ObjectProperty ;
+    rdfs:comment "The person who wrote the package (package.json author)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "author"@en ;
+    rdfs:range schema:Person .
+
+npm:bugs
+    a owl:ObjectProperty ;
+    rdfs:comment "Where to report the package's issues: the issue tracker's IRI (package.json bugs)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "bugs"@en .
+
+npm:contributor
+    a owl:ObjectProperty ;
+    rdfs:comment "A person who contributed to the package (package.json contributors)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "contributor"@en ;
+    rdfs:range schema:Person .
+
+npm:dependency
+    a owl:ObjectProperty ;
+    rdfs:comment "A package this package needs at run time (package.json dependencies)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "dependency"@en ;
+    rdfs:range npm:Dependency .
+
+npm:description
+    a owl:DatatypeProperty ;
+    rdfs:comment "What the package is, in a sentence (package.json description)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "description"@en ;
+    rdfs:range xsd:string .
+
+npm:devDependency
+    a owl:ObjectProperty ;
+    rdfs:comment "A package this package needs only to be developed, built or tested (package.json devDependencies)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "dev dependency"@en ;
+    rdfs:range npm:Dependency .
+
+npm:engine
+    a owl:ObjectProperty ;
+    rdfs:comment "A runtime the package works on, such as node, and its version range (package.json engines)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "engine"@en ;
+    rdfs:range npm:Dependency .
+
+npm:homepage
+    a owl:ObjectProperty ;
+    rdfs:comment "The IRI of the package's home page (package.json homepage)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "homepage"@en .
+
+npm:keyword
+    a owl:DatatypeProperty ;
+    rdfs:comment "A keyword that helps people find the package (package.json keywords)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "keyword"@en ;
+    rdfs:range xsd:string .
+
+npm:license
+    a owl:DatatypeProperty ;
+    rdfs:comment "The package's license, as an SPDX expression (package.json license)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "license"@en ;
+    rdfs:range xsd:string .
+
+npm:maintainer
+    a owl:ObjectProperty ;
+    rdfs:comment "A person who maintains the package (package.json maintainers)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "maintainer"@en ;
+    rdfs:range schema:Person .
+
+npm:name
+    a owl:DatatypeProperty ;
+    rdfs:comment "The npm name of a package, with its scope if it has one (package.json name); on a dependency, the name of the package or engine it is on."@en ;
+    rdfs:label "name"@en ;
+    rdfs:range xsd:string .
+
+npm:optionalDependency
+    a owl:ObjectProperty ;
+    rdfs:comment "A package this package uses when it can be installed, and works without (package.json optionalDependencies)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "optional dependency"@en ;
+    rdfs:range npm:Dependency .
+
+npm:peerDependency
+    a owl:ObjectProperty ;
+    rdfs:comment "A package this package needs the app to install alongside it (package.json peerDependencies)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "peer dependency"@en ;
+    rdfs:range npm:Dependency .
+
+npm:private
+    a owl:DatatypeProperty ;
+    rdfs:comment "Whether npm refuses to publish the package (package.json private)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "private"@en ;
+    rdfs:range xsd:boolean .
+
+npm:range
+    a owl:DatatypeProperty ;
+    rdfs:comment "The version range a dependency accepts, as npm writes it (a semver range, a tag, or a URL)."@en ;
+    rdfs:domain npm:Dependency ;
+    rdfs:label "range"@en ;
+    rdfs:range xsd:string .
+
+npm:repository
+    a owl:ObjectProperty ;
+    rdfs:comment "The IRI of the package's source code repository (package.json repository)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "repository"@en ;
+    rdfs:subPropertyOf schema:codeRepository .
+
+npm:version
+    a owl:DatatypeProperty ;
+    rdfs:comment "The package's version, a semver version (package.json version)."@en ;
+    rdfs:domain npm:Package ;
+    rdfs:label "version"@en ;
+    rdfs:range xsd:string .
