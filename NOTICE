@@ -1,0 +1,6 @@
+@_linked/npm
+
+The code and the ontology data in this package are licensed under the MIT License (see LICENSE).
+
+The ontology describes the fields of npm's package.json (https://docs.npmjs.com/cli/configuring-npm/package-json);
+npm and its documentation are not part of this package.

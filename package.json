@@ -1,0 +1,84 @@
+{
+  "name": "@_linked/npm",
+  "displayName": "npm",
+  "description": "npm package metadata as a Linked ontology (https://linked.cm/ont/npm/): a package's name, version, repository, people and dependencies, with the shapes NpmPackage and NpmDependency.",
+  "version": "0.0.0",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "CHANGELOG.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "packageManager": "npm@12.2.0",
+  "linked": {
+    "kind": "ontology"
+  },
+  "linkedOntologies": {
+    "npm": {
+      "namespace": "https://linked.cm/ont/npm/"
+    }
+  },
+  "type": "module",
+  "author": {
+    "name": "René Verheij",
+    "url": "https://github.com/flyon",
+    "email": "rpwverheij@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/linked-fw/npm.git"
+  },
+  "keywords": [
+    "linked",
+    "linked code",
+    "linked data",
+    "semantic web",
+    "npm",
+    "package.json"
+  ],
+  "main": "lib/esm/index.js",
+  "module": "lib/esm/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "start": "npm exec linked dev",
+    "build": "linked build",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@_linked/core": "^2.44.0",
+    "@_linked/schema": "^1.9.1",
+    "@_linked/xsd": "^1.4.3"
+  },
+  "devDependencies": {
+    "@_linked/cli": "^1.57.4",
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.0",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.7.3"
+  },
+  "exports": {
+    ".": {
+      "types": "./lib/esm/index.d.ts",
+      "import": "./lib/esm/index.js"
+    },
+    "./*.js": {
+      "types": "./lib/esm/*.d.ts",
+      "import": "./lib/esm/*.js"
+    },
+    "./*": {
+      "types": "./lib/esm/*.d.ts",
+      "import": "./lib/esm/*.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "lib/esm/*"
+      ]
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

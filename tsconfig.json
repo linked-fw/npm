@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "inlineSources": true,
+    "declaration": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "rootDir": "./src",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "pretty": true,
+    "types": [
+      "node"
+    ]
+  },
+  "files": [
+    "./src/index.ts"
+  ],
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "**/*.test.ts",
+    "./src/tests/**"
+  ]
+}
