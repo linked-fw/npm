@@ -2,7 +2,7 @@
   "name": "@_linked/npm",
   "displayName": "npm",
   "description": "npm package metadata as a Linked ontology (https://linked.cm/ont/npm/): a package's name, version, repository, people and dependencies, with the shapes NpmPackage and NpmDependency.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "files": [
     "lib",
