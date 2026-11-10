@@ -1,7 +1,7 @@
 ---
 date: 2026-10-27
 summary: >
-  The first version of @_linked/npm (step CK of CN plan 057): the npm ontology on
+  The first version of @_linked/npm (step CK of the host app's packages plan): the npm ontology on
   https://linked.cm/ont/npm/ (20 terms, npm:Package ⊑ schema:SoftwareSourceCode, npm:repository ⊑
   schema:codeRepository), the shapes NpmPackage (extends CreativeWork) and NpmDependency, made by
   hand on the layout of @_linked/rdfs. A local repo (main, dev), no remote yet.
@@ -14,7 +14,7 @@ summary: >
 ### Summary
 
 npm's terms leave `@_linked/core` (core report 080) for their own vocabulary package, like every
-other `@_linked` vocabulary (contract K-npm of CN plan 057).
+other `@_linked` vocabulary (contract K-npm of the host app's packages plan).
 
 ### Changes
 
@@ -40,13 +40,13 @@ other `@_linked` vocabulary (contract K-npm of CN plan 057).
 
 ### Verification
 
-- In CN's main checkout after landing: `npx linked build` → `✔ Build successful` (4.3 s);
+- In the host app's main checkout after landing: `npx linked build` → `✔ Build successful` (4.3 s);
   `npm test` → `# tests 4`, `# pass 4`, `# fail 0` (0.6 s); `npx linked generate-ontology --check`
   → `npm: 20 terms from src/data/npm.ttl`, `Every ontology module is current.`
 - The shape check is not vacuous: with `rdfs:subClassOf schema:SoftwareSourceCode` removed from the
   built Turtle it fails with `error extends-without-subclass: NpmPackage extends CreativeWork, but
   its class https://linked.cm/ont/npm/Package is not a subclass of http://schema.org/CreativeWork`.
-- CN workspace member: `npm install` at CN's root (lockfile restored by the hook, `git status`
+- Host app workspace member: `npm install` at the host app's root (lockfile restored by the hook, `git status`
   clean), `npm ls @_linked/npm` → `@_linked/npm@0.0.0 -> ./packages-local/_linked-npm`.
 
 ### Deviations
@@ -58,17 +58,17 @@ other `@_linked` vocabulary (contract K-npm of CN plan 057).
   K-npm in core's sub-plan 005; the contract's terms and shape names are unchanged.
 - **Both `linked.kind` and `linkedPackage: true`** until step RK removes the old flag everywhere
   (sub-plan pitfall).
-- **No `package-lock.json`**: an `npm install` inside a checkout of CN's workspace is not allowed;
+- **No `package-lock.json`**: an `npm install` inside a checkout of the host app's workspace is not allowed;
   backlog 001.
 - `@_linked/xsd` is a dependency (the shapes' datatypes), beyond the sub-plan's list.
 
 ### Follow-ups
 
 - `docs/backlog/001-first-release.md` — remote, lockfile, first publish, trusted publisher (owner
-  actions, plan 057).
+  actions, the packages plan).
 
 ## Details
 
 - The dependency lists are `contains` (owned): a dependency node belongs to its package.
-- Package records of CN (step PR) type the record `core:OntologyPackage` / `core:AssetPackage` and
+- The host app's package records (step PR) type the record `core:OntologyPackage` / `core:AssetPackage` and
   carry `npm:name` / `npm:repository` through these terms.
