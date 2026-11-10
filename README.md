@@ -1,7 +1,7 @@
 # @_linked/npm
 
 The fields of an npm package's `package.json` as a Linked ontology, on
-`https://linked.cm/ont/npm/` (prefix `npm:`), with the shapes `NpmPackage` and `NpmDependency`.
+`https://linked.cm/ont/npm/` (suggested prefix `npm:`), with the shapes `NpmPackage` and `NpmDependency`.
 
 `package.json` carries `"linked": {"kind": "ontology"}`: an ontology package that also carries
 shapes for its own terms.
