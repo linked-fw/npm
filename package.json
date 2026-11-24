@@ -46,9 +46,9 @@
     "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
-    "@_linked/core": "^2.44.0",
-    "@_linked/schema": "^1.9.1",
-    "@_linked/xsd": "^1.4.3"
+    "@_linked/core": "^3.0.0",
+    "@_linked/schema": "^2.0.0",
+    "@_linked/xsd": "^2.0.0"
   },
   "devDependencies": {
     "@_linked/cli": "^1.57.4",

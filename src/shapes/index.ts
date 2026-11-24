@@ -6,6 +6,6 @@
  * It has no exports, so it loads in plain node as well as in a bundle. The
  * package entry imports it instead of listing shapes itself.
  */
-import '../ontologies/npm.register.js';
+import '../ontologies/index.js';
 import './NpmDependency.js';
 import './NpmPackage.js';

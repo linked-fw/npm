@@ -5,12 +5,15 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 
 npm:
     a owl:Ontology ;
     dcterms:description "The fields of an npm package's package.json: its name, version, description, keywords, license, links, people and dependencies."@en ;
     dcterms:title "npm"@en ;
-    owl:versionInfo "0.1.0" .
+    owl:versionInfo "0.1.0" ;
+    vann:preferredNamespacePrefix "npm" ;
+    vann:preferredNamespaceUri "https://linked.cm/ont/npm/" .
 
 npm:Dependency
     a owl:Class ;
